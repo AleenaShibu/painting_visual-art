@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+ {% load static %}
+	
+
+	{% block title %}Paintings{% endblock title %}
+ 	{% block body %}
+    {% if user.is_authenticated %}
+  <h1 class="text-center"> Hi {{ user.username }}</h1>
+    <div class>
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+  </div>
+ <form action= "{% url 'search' %}"  method="get">
+ 
+  <input type ="text" name ="q">
+<input type ="submit" value ="search">
+</form>
+ 	<h2>Paintings List</h2>
+ 	{% for element in object_list %}
+  <a href="{% url 'detail' element.id %}">
+ 	   <h3 class="text-success">{{ element.name }}</h3>
+ 	   <h4 class="text-success">{{ element.artist_name }}</h4>
+ 	   <h5 class="text-success">{{ element.origin }}</h5>
+ 	   <h6 class="text-success">{{ element.medium }}</h6>
+     
+     
+    <img class= "rounded" src="{{ painting.image.url}}" alt="{{ painting.name }}">
+</a>
+     {% endfor %}
+  {% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a> 
+  <a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+<a href="{% url 'orders' %}"> Order</a>
+
+{% endblock body %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Delete Painting{% endblock title %}
+{% block body %}
+{% if request.user.is_authenticated %}
+<div class ="card-body">
+	<h1>Delete Painting</h1>
+<form action ="" method="post"> 
+{% csrf_token %}
+<p>Do you want to delete </p>
+
+<input class="btn btn-success" type="submit" value ="confirm">
+</form>
+{% else %}
+  <p>You are not logged in</p>
+<a href ="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+
+</div>
+{% endblock body %}

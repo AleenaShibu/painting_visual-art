@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+{% block title %} Search {% endblock title %}
+{% block body %}
+ <h1>Paintings </h1>
+ 	{% for element in object_list %}
+ 	 <h2>{{ element.name }}</h2>
+ 	   <h3>{{ element.artisit_name}}</h3>
+ 	   <h4>{{ element.origin }}</h4>
+ 	   <h5>{{ element.medium }}</h5>
+     {% endfor %}
+     {% endblock body %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{painting.name }} 
+{% endblock title %}
+
+	{% block body %}
+		<div class="card" style="width: 50rem;">
+		<div class ="card-body">
+			
+
+	<h1 class ="text-primary"> {{ painting.name }} </h1>
+	<img class= "rounded" src="{{ painting.image.url}}" alt="{{ painting.name }}">
+	
+	<h2 class="text-info"> {{ painting.artist_name }} </h2>
+	<h3 class="text-info"> {{ painting.subject }}</h3>
+	<h4 class="text-info"> {{ painting.origin }}</h4>
+	<h4 class="text-info"> {{ painting.medium }}</h4>
+	<p> {{ paintings.detail }} </p>
+</div>
+
+</div>
+
+
+
+<div class ="text-dark grey">
+<a href ="{% url 'delete' painting.id %}">Delete </a>
+</div>
+
+    {% endblock body %}
+   
